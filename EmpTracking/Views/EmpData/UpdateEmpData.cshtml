@@ -1,0 +1,21 @@
+﻿@model EmpList
+
+<h2>Update @Model.FName</h2>
+
+@using (Html.BeginForm("UpdateEmpToDatabase", "EmpData", "Post"))
+{
+    <input asp-for="EmpDataID" type="hidden" value="@Model.EmpDataID" />
+
+    <label asp-for="FName" class="control-label">First Name</label>
+
+    <input type="text" name="fname" class="form-control" value="@Model.FName" />
+
+    <label asp-for="LName" class="control-label">Last Name</label>
+
+    <input type="text" name="lname" class="form-control" value="@Model.LName" />
+
+   <br />
+
+    <input type="submit" value="Update" class="btn btn-primary" />
+
+}

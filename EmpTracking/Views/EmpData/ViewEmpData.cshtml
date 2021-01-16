@@ -1,0 +1,45 @@
+﻿@model EmpList
+
+<h3>@Model.FName Information</h3>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Date Hired</th>
+        <th>Email</th>
+        <th>Employee Status</th>
+        <th>Department</th>
+        <th>Position</th>
+        <th>Other Status</th>
+    </tr>
+    <tr>
+        <td>@Model.EmpDataID</td>
+        <td>@Model.FName</td>
+        <td>@Model.LName</td>
+        <td>@Model.DateHire</td>
+        <td>@Model.Email</td>
+        <td>@Model.EmpStatID</td>
+        <td>@Model.DeptID</td>
+        <td>@Model.PositionID</td>
+        <td>@Model.FieldID</td>
+    </tr>
+
+</table>
+
+<div style="display: block">
+    <a href="/EmpData/UpdateEmpData/@Model.EmpDataID">Update this information</a>
+</div>
+
+<br />
+
+<div style="display: block">
+    @using (Html.BeginForm("DeleteEmpData", "EmpData", "Post"))
+    {
+        <input type="hidden" asp-for="EmpDataID" value="@Model.EmpDataID" />
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this employee?" />
+    }
+</div>
+
+

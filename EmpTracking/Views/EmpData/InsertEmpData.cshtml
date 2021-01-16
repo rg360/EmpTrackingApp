@@ -1,0 +1,27 @@
+﻿@model EmpList
+<h2>Create a New Employee</h2>
+
+@using (Html.BeginForm("InsertEmpToDatabase", "EmpData", "Post"))
+{
+    <input asp-for="EmpDataID" type="hidden" value="" />
+
+    <label asp-for="FName" class="control-label">First Name</label>
+    <input type="text" name="FName" class="form-control" value="" />
+
+    <label asp-for="LName" class="control-label">First Name</label>
+    <input type="text" name="LName" class="form-control" value="" />
+
+    @*<label asp-for="Price" class="control-label">Price</label>
+    <input type="number" step="0.01" name="Price" class="form-control" />*@
+
+    <div class="form-group">
+        <label for="">Select a Department</label>
+        <select class="form-control" name="DepartmentID" value="">
+            @foreach (var dept in Model.Departments)
+            {
+                <option value="@dept.DeptID">@dept.DeptID @dept.DeptName</option>
+            }
+        </select>
+    </div>
+    <input type="submit" value="Create Employee" class="btn btn-primary" />
+}
