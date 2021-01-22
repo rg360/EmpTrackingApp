@@ -59,5 +59,11 @@ namespace EmpTracking
                                        new { id = empdata.EmpDataID });
         }
 
+        public IEnumerable<EmpList> SearchEmpList(string search)
+        {
+            return _conn.Query<EmpList>("SELECT * FROM EmpData WHERE LName LIKE @lastname;",
+                new { lastname = "%" +search + "%"});
+        }
+
     }
 }

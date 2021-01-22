@@ -70,5 +70,11 @@ namespace EmpTracking.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Search(string searchFor)
+        {
+            var search = repo.SearchEmpList(searchFor);
+            return View(search);
+        }
+
     }
 }

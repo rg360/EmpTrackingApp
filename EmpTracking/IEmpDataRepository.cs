@@ -21,5 +21,7 @@ namespace EmpTracking
         public EmpList AssignDepartment();
 
         public void DeleteEmpData(EmpList empdata);
+
+        public IEnumerable<EmpList> SearchEmpList(string search);
     }
 }

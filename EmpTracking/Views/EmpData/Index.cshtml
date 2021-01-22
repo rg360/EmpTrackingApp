@@ -8,6 +8,14 @@
     <a href="/EmpData/InsertEmpData/">Create new Employee</a>
 </div>
 
+@using (Html.BeginForm("Search", "EmpData", FormMethod.Get))
+{
+    <p>
+        Find by name: @Html.TextBox("searchFor")
+        <input type="submit" value="Search" />
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>ID</th>
